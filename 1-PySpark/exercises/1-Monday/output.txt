@@ -1,11 +1,11 @@
 WARNING: Using incubator modules: jdk.incubator.vector
 Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
-26/02/24 11:16:48 WARN Utils: Your hostname, thomasdell, resolves to a loopback address: 127.0.1.1; using 10.255.255.254 instead (on interface lo)
-26/02/24 11:16:48 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+26/02/24 12:01:49 WARN Utils: Your hostname, thomasdell, resolves to a loopback address: 127.0.1.1; using 10.255.255.254 instead (on interface lo)
+26/02/24 12:01:49 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
 Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
 Setting default log level to "WARN".
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
-26/02/24 11:16:48 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/02/24 12:01:49 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 +-------+-----------+------+--------+                                           
 |product|   category| price|quantity|
 +-------+-----------+------+--------+
@@ -45,3 +45,6 @@ Revenue by category:
 |Electronics|      10999.3|
 |  Furniture|       4999.7|
 +-----------+-------------+
+
+Product with highest revenue: Laptop
+At: $4999.95

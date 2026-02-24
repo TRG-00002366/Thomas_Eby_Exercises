@@ -33,6 +33,9 @@ def main():
     ## Aggregate by category: Calculate total revenue per category
     total_revenue_df = revenue_df.groupBy("category").agg(functions.round(functions.sum("revenue"), 2).alias("total_revenue")) # Rounding since my furnature total_revanue was comming in at 4999.700000000001
 
+    ## Find the product with the highest revenue
+    highest_revenue_row = revenue_df.sort("revenue", ascending=False).first()
+
     # Step 4: Show results
     df.show()
     
@@ -46,6 +49,8 @@ def main():
 
     print("Revenue by category:")
     total_revenue_df.show()
+
+    print(f"Product with highest revenue: {highest_revenue_row["product"]}\nAt: ${highest_revenue_row["revenue"]}")
 
     # Step 5: Clean up
     spark.stop()
