@@ -1,0 +1,28 @@
+Task 1
+
+Numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Partitions: 20
+Numbers (4): [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Partitions: 4
+Numbers (range): [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+Partitions (range): 20
+
+Task 2
+
+Task 2A result: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+Task 2B result: ['num_1', 'num_2', 'num_3', 'num_4', 'num_5', 'num_6', 'num_7', 'num_8', 'num_9', 'num_10']
+
+Task 3
+
+Task 3A result: [2, 4, 6, 8, 10]
+Task 3B result: [6, 7, 8, 9, 10]
+Task 3C result [6, 8, 10]                                                       
+
+Task 4
+
+Task 4A result: ['Hello', 'World', 'Apache', 'Spark', 'is', 'Fast', 'PySpark', 'is', 'Python', 'plus', 'Spark']
+Task 4B result: [('Hello', 5), ('World', 5), ('Apache', 6), ('Spark', 5), ('is', 2), ('Fast', 4), ('PySpark', 7), ('is', 2), ('Python', 6), ('plus', 4), ('Spark', 5)]
+
+Task 5
+
+Task 5 result: ['ERROR:', 'CONNECTION', 'FAILED', 'ERROR:', 'TIMEOUT', 'OCCURRED']
