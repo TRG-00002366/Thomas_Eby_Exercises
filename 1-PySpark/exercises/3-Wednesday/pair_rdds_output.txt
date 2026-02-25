@@ -1,0 +1,35 @@
+TASK 1
+
+Word Counts (top 10):                                                           
+  Spark: 4
+  is: 3
+  and: 2
+  for: 2
+  Python: 2
+  in: 1
+  Java: 1
+  engine: 1
+  APIs: 1
+  fast: 1
+
+TASK 2
+
+Inner join: [('P001', ('Laptop', 999)), ('P002', ('Mouse', 29)), ('P003', ('Keyboard', 79))]
+Left join: [('P001', ('Laptop', 999)), ('P002', ('Mouse', 29)), ('P004', ('Monitor', None)), ('P003', ('Keyboard', 79))]
+Right join: [('P001', ('Laptop', 999)), ('P002', ('Mouse', 29)), ('P005', (None, 199)), ('P003', ('Keyboard', 79))]
+Full join: [('P001', ('Laptop', 999)), ('P002', ('Mouse', 29)), ('P005', (None, 199)), ('P004', ('Monitor', None)), ('P003', ('Keyboard', 79))]
+
+TASK 3
+
+There are no task 3 instructions
+
+TASK 4
+
+Employee counts: [('Engineering', 3), ('Sales', 2), ('HR', 1)]
+Total salaries: [('Engineering', 270000), ('Sales', 145000), ('HR', 60000)]
+Average salaries: [('Engineering', 90000.0), ('Sales', 72500.0), ('HR', 60000.0)]
+
+TASK 5
+
+Alphabetical: [('API', 1), ('APIs', 1), ('Apache', 1), ('Java', 1), ('PySpark', 1), ('Python', 2), ('Scala', 1), ('Spark', 4), ('a', 1), ('and', 2)]
+Reverse: [('used', 1), ('the', 1), ('provides', 1), ('processing', 1), ('is', 3), ('in', 1), ('general', 1), ('for', 2), ('fast', 1), ('engine', 1)]
