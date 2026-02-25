@@ -1,0 +1,20 @@
+TASK 1
+
+Records processed: 100                                                          
+
+TASK 2
+
+Total records: 8
+Valid records: 5
+Invalid records: 3
+Error rate: 37.5%
+
+TASK 3
+
+Electronics: 3
+Clothing: 2
+Food: 2
+
+TASK 4
+
+Total sales: $1627
