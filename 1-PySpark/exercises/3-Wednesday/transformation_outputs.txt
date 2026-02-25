@@ -1,0 +1,21 @@
+TASK 1
+
+Errors: ['2024-01-15 10:01:00 ERROR Database connection failed', '2024-01-15 10:04:00 ERROR Timeout occurred']
+Levels: ['INFO', 'ERROR', 'INFO', 'WARN', 'ERROR', 'INFO', 'DEBUG']
+Error messages: ['Database connection failed', 'Timeout occurred']
+
+TASK 2
+
+Unique words: ['spark', 'hadoop', 'scala', 'python', 'data']
+Word counts: [('spark', 4), ('hadoop', 2), ('scala', 1), ('python', 1), ('data', 2)]
+Sorted: [('spark', 4), ('hadoop', 2), ('data', 2), ('scala', 1), ('python', 1)]
+
+TASK 3
+
+Union: [1, 2, 3, 4, 5, 4, 5, 6, 7, 8]
+Intersection: [4, 5]                                                            
+Difference: [1, 2, 3]                                                           
+
+TASK 4
+
+[('/products', 2), ('/home', 2), ('/login', 1)]
