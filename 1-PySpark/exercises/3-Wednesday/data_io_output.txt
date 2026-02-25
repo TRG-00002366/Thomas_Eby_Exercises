@@ -1,0 +1,20 @@
+TASK 1
+
+Header: product_id,name,category,price,quantity                                 
+Data records: 7
+First record: P001,Laptop,Electronics,999.99,5
+
+TASK 2
+
+{'product_id': 'P001', 'name': 'Laptop', 'category': 'Electronics', 'price': 999.99, 'quantity': 5}
+{'product_id': 'P002', 'name': 'Mouse', 'category': 'Electronics', 'price': 29.99, 'quantity': 50}
+{'product_id': 'P003', 'name': 'Desk', 'category': 'Furniture', 'price': 199.99, 'quantity': 10}
+
+TASK 3
+
+Data saved to output directory
+
+TASK 4
+
+['P001,Laptop,Electronics,999.99,5', 'P002,Mouse,Electronics,29.99,50', 'P003,Desk,Furniture,199.99,10', 'P004,Chair,Furniture,149.99,20', 'P005,Monitor,Electronics,299.99,15', 'P006,Keyboard,Electronics,79.99,30', 'P007,Lamp,Furniture,49.99,25', 'P008,Monitor Stand,Furniture,99.50,8', 'P009,Earbuds,Electronics,29.99,50', 'P010,Bed Frame,Furniture,199.99,8', 'P011,Stool,Furniture,19.99,27', 'P012,Surge Protector,Electronics,20.99,150', 'P013,Headphones,Electronics,49.99,50', 'P014,Reclining Chair,Furniture,1049.99,5']
+Data saved to outputSingle directory
