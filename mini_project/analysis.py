@@ -2,7 +2,7 @@ from pyspark import SparkContext
 import re
 
 sc = SparkContext("local[*]", "Sherlock Holmes Analysis")
-rdd = sc.textFile("1-PySpark/mini_project/data/sherlock_holmes.txt")
+rdd = sc.textFile("mini_project/data/sherlock_holmes.txt")
 
 def show_separator():
     print("\n", "-" * 80, "\n")
@@ -86,7 +86,7 @@ print("Task 5: Line length analysis")
 # longest_line = rdd.map(lambda line: (line, len(line))) \
 #     .sortBy(lambda pair: pair[1], ascending=False) \
 #     .first()
-whole_text_rdd = sc.wholeTextFiles("1-PySpark/mini_project/data")
+whole_text_rdd = sc.wholeTextFiles("mini_project/data")
 
 chapters = set(['I. A Scandal in Bohemia', 'II. The Red-headed League', 'III. A Case of Identity', 'IV. The Boscombe Valley Mystery', 'V. The Five Orange Pips', 'VI. The Man with the Twisted Lip',
     'VII. The Adventure of the Blue Carbuncle', 'VIII. The Adventure of the Speckled Band', "IX. The Adventure of the Engineer's Thumb", 'X. The Adventure of the Noble Bachelor', 'XI. The Adventure of the Beryl Coronet',
