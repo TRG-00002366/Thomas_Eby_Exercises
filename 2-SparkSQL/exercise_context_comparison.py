@@ -36,8 +36,8 @@ print(f"SparkContext app ID: {sc.applicationId}")  # Complete
 # TODO 1d: Answer these questions in comments below:
 # Q1: Can you create a SparkContext after SparkSession exists?
 # ANSWER:
-# No. For a SparkSession to exists, there must be a SparkContext, and there
-# can only be one SparkContext.
+# No. For a SparkSession to exists, there must already be a SparkContext. It may
+# be built at the same time or already exist, and there can only be one SparkContext.
 
 #sc2 = SparkContext()
 
@@ -90,9 +90,10 @@ df_to_rdd = df.rdd  # Your code here (HINT: df.rdd)
 # TODO 2g: Answer these questions:
 # Q3: Which approach (RDD or DataFrame) felt more natural for this task?
 # ANSWER:
-# RDD felt more natural since we were working with a list of values. Having
-# to create a new column to show the doubled list is extra work, and accessing
-# the values will be more difficult too.
+# RDD felt more natural since we were working with a list of values. Creating 
+# the Dataframe required more steps like listing the values as a list of tuples 
+# even though the tuples have one element. The result of the transformation is 
+# then stored in a column making it more difficult to access.
 
 print(df.rdd.first(), type(df.rdd.first()))
 
@@ -100,7 +101,6 @@ print(df.rdd.first(), type(df.rdd.first()))
 # ANSWER:
 # Row
 #
-
 
 # =============================================================================
 # TASK 3: Broadcast and Accumulator Access
@@ -141,7 +141,7 @@ print(f"Items processed: {counter.value}")
 # Broadcast and accumulator are accesses via SparkContext instead of SparkSession because
 # the SparkContext provides the low-level capability for working with RDDs. SparkSession 
 # is a wrapper around this capability to add high-level abstractions, and broadcast and 
-# accumulators are a low-level concept used in RDDs.
+# accumulators are low-level concepts used in RDDs.
 
 
 # =============================================================================
@@ -156,16 +156,19 @@ print("\n=== Conceptual Questions ===")
 # ANSWER:
 # You would use the SparkSession entry point because that became the standard from 
 # Spark 2.0 and onwards. It configures the SparkContext and SQLContext concisely
-# and you will want to work with DataFrames.
+# and you will want to work with DataFrames instead of RDDs in most cases. RDDs 
+# and other SparkContext capabilities will still be available to you.
 
 # Q7: You inherit legacy Spark 1.x code that uses SQLContext. 
 #     What is the minimal change to modernize it?
 # ANSWER:
 # I'm assuming this question is about inheriting the 1.x code but in a 4.1.1 environment.
-# You can simply create a SparkSession with matching configuration to the SparkContext used 
-# throughout the code, and replace the instantiation of the SparkContext with grabbing the 
-# SparkContext from the SparkSession with sc = spark.sparkContext. From then onwards, you 
-# can use SparkSession for computations.
+# You can create a SparkSession with matching configuration to the SparkContext used 
+# before. Then you can create a SparkContext reference out of spark.sparkContext before 
+# creating the SQLContext. This doesn't really utilize any new features, but it is a start.
+# A more involved migration could replace the sqlContext variable with another reference to
+# the SparkSession, but there are some functions that need to be changed like swapping
+# registerTempTable for createOrReplaceTempView.
 
 # Q8: Describe the relationship between SparkSession, SparkContext, 
 #     SQLContext, and HiveContext (you can use ASCII art):
