@@ -1,0 +1,33 @@
+=== Task 1: Basic SparkSession ===
+4.1.1
+local-1772228745747
+20
++------+---+-------------+                                                      
+|  name|age|          job|
++------+---+-------------+
+| James| 18|      Student|
+| Tommy| 23|Data Engineer|
+|Ronald| 34|         Chef|
+|Jessie| 26|      Teacher|
+|  Mary| 30|         Chef|
++------+---+-------------+
+
+
+=== Task 2: Configuration ===
+26/02/27 16:45:49 WARN SparkSession: Using an existing Spark session; only runtime SQL configurations will take effect.
+Shuffle partitions: 50
+Adaptive enabled: true
+Driver port: 35053
+Deploy mode: client
+Driver memory: 2g
+New shuffle partitions: 10
+
+=== Task 3: getOrCreate() Behavior ===
+26/02/27 16:45:49 WARN SparkSession: Using an existing Spark session; only runtime SQL configurations will take effect.
+spark app name: MyFirstSparkSQLApp
+spark2 app name: MyFirstSparkSQLApp
+spark and spark2 are the same object: True
+
+=== Task 4: Cleanup ===
+SparkSession is stopped (before): False
+SparkSession is stopped: True

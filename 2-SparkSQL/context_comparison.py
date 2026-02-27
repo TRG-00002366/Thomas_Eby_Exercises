@@ -26,11 +26,11 @@ sc = spark.sparkContext  # Your code here (HINT: spark.sparkContext)
 
 # TODO 1c: Prove they are connected
 # Print app name from BOTH SparkSession and SparkContext
-print(f"SparkSession app name: {spark.sparkContext.appName}")  # Complete
+print(f"SparkSession app name: {spark.conf.get('spark.app.name')}")  # Complete
 print(f"SparkContext app name: {sc.appName}")  # Complete
 
 # Verify they share the same application ID
-print(f"SparkSession app ID: {spark.sparkContext.applicationId}")  # Complete
+print(f"SparkSession app ID: {spark.conf.get('spark.app.id')}")  # Complete
 print(f"SparkContext app ID: {sc.applicationId}")  # Complete
 
 # TODO 1d: Answer these questions in comments below:
