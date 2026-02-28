@@ -1,0 +1,159 @@
+=== Exercise: Aggregations ===
+
+Sales Data:
++-------+-----------+-------+------+-----------+                                
+|  month|   category|product|amount|salesperson|
++-------+-----------+-------+------+-----------+
+|2023-01|Electronics| Laptop|  1200|      Alice|
+|2023-01|Electronics|  Phone|   800|        Bob|
+|2023-01|Electronics| Tablet|   500|      Alice|
+|2023-01|   Clothing| Jacket|   150|    Charlie|
+|2023-01|   Clothing|  Shoes|   100|      Diana|
+|2023-02|Electronics| Laptop|  1300|        Eve|
+|2023-02|Electronics|  Phone|   850|      Alice|
+|2023-02|   Clothing| Jacket|   175|        Bob|
+|2023-02|   Clothing|  Pants|    80|    Charlie|
+|2023-03|Electronics| Laptop|  1100|      Frank|
+|2023-03|Electronics|  Phone|   750|      Grace|
+|2023-03|   Clothing|  Shoes|   120|      Alice|
++-------+-----------+-------+------+-----------+
+
+
+--- Task 1: Simple Aggregations ---
+Amount Statistics
++------------+----------+----------+----------+
+|total_amount|avg_amount|min_amount|max_amount|
++------------+----------+----------+----------+
+|        7125|    593.75|        80|      1300|
++------------+----------+----------+----------+
+
+Total number of sales transactions: 12
+Distinct category count: 2
+
+--- Task 2: GroupBy Single Aggregation ---
+Total Sales Amount by Category
++-----------+-----+
+|   category|count|
++-----------+-----+
+|Electronics|    7|
+|   Clothing|    5|
++-----------+-----+
+
+Average Sale Amount by Month
++-------+-----------------+
+|  month|      avg(amount)|
++-------+-----------------+
+|2023-01|            550.0|
+|2023-02|           601.25|
+|2023-03|656.6666666666666|
++-------+-----------------+
+
+Transaction Count by Salesperson
++-----------+-----+
+|salesperson|count|
++-----------+-----+
+|      Alice|    4|
+|        Bob|    2|
+|    Charlie|    2|
+|      Diana|    1|
+|        Eve|    1|
+|      Frank|    1|
+|      Grace|    1|
++-----------+-----+
+
+
+--- Task 3: GroupBy Multiple Aggregations ---
+Category Statistics
++-----------+-----------------------------+-------------------------+---------------------+------------------------+
+|   category|transaction_count_by_category|total_revenue_by_category|avg_sales_by_category|highest_sale_by_category|
++-----------+-----------------------------+-------------------------+---------------------+------------------------+
+|Electronics|                            7|                     6500|    928.5714285714286|                    1300|
+|   Clothing|                            5|                      625|                125.0|                     175|
++-----------+-----------------------------+-------------------------+---------------------+------------------------+
+
+Salesperson Statistics
++-----------+-------------------------+----------------------------+------------------------------------------+
+|salesperson|sale_count_by_salesperson|total_revenue_by_salesperson|distinct_product_sale_count_by_salesperson|
++-----------+-------------------------+----------------------------+------------------------------------------+
+|      Grace|                        1|                         750|                                         1|
+|      Diana|                        1|                         100|                                         1|
+|    Charlie|                        2|                         230|                                         2|
+|        Bob|                        2|                         975|                                         2|
+|      Alice|                        4|                        2670|                                         4|
+|        Eve|                        1|                        1300|                                         1|
+|      Frank|                        1|                        1100|                                         1|
++-----------+-------------------------+----------------------------+------------------------------------------+
+
+
+--- Task 4: Multi-Column GroupBy ---
+Total Sales by Month and Category
++-------+-----------+-----------+
+|  month|   category|sum(amount)|
++-------+-----------+-----------+
+|2023-01|Electronics|       2500|
+|2023-01|   Clothing|        250|
+|2023-02|Electronics|       2150|
+|2023-02|   Clothing|        255|
+|2023-03|Electronics|       1850|
+|2023-03|   Clothing|        120|
++-------+-----------+-----------+
+
+Extra dataframe showing how I got the monthly rankings. Required research on how to use window functions.
++-------+-----------+-----------+----+
+|  month|salesperson|total_sales|rank|
++-------+-----------+-----------+----+
+|2023-01|      Alice|       1700|   1|
+|2023-01|        Bob|        800|   2|
+|2023-01|    Charlie|        150|   3|
+|2023-01|      Diana|        100|   4|
+|2023-02|        Eve|       1300|   1|
+|2023-02|      Alice|        850|   2|
+|2023-02|        Bob|        175|   3|
+|2023-02|    Charlie|         80|   4|
+|2023-03|      Frank|       1100|   1|
+|2023-03|      Grace|        750|   2|
+|2023-03|      Alice|        120|   3|
++-------+-----------+-----------+----+
+
+Top Salesperson by Month
++-------+-----------+-----------+
+|  month|salesperson|total_sales|
++-------+-----------+-----------+
+|2023-01|      Alice|       1700|
+|2023-02|        Eve|       1300|
+|2023-03|      Frank|       1100|
++-------+-----------+-----------+
+
+
+--- Task 5: Filtering After Aggregation ---
+Categories with Total Revenue > 2000
++-----------+-------------+
+|   category|total_revenue|
++-----------+-------------+
+|Electronics|         6500|
++-----------+-------------+
+
+Salespeople Who Made More Than 2 Transactions
++-----------+----------------+
+|salesperson|num_transactions|
++-----------+----------------+
+|      Alice|               4|
++-----------+----------------+
+
+Month-Category Combinations with Average Sale > 500
++-------+-----------+-----------------+
+|  month|   category|         avg_sale|
++-------+-----------+-----------------+
+|2023-01|Electronics|833.3333333333334|
+|2023-02|Electronics|           1075.0|
+|2023-03|Electronics|            925.0|
++-------+-----------+-----------------+
+
+
+--- Challenge: Business Questions ---
+The category with the highest average transaction value: Electronics
+At: $928.5714285714286
+The salesperson with the highest total revenue: Alice
+At: $2670
+The month with the most diverse products sold: 2023-01
+With: 5 distinct products sold
