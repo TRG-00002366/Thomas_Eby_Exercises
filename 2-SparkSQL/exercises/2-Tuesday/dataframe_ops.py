@@ -60,7 +60,8 @@ print("\n--- Task 2: Column Selection ---")
 df.select('name', 'salary').show()
 
 # TODO 2b: Select all columns EXCEPT id (dynamically, not hardcoding column names)
-df.select("*").drop('id').show()
+#df.select("*").drop('id').show()
+df.select([col for col in df.columns if col not in ['id']]).show()
 
 # TODO 2c: Use selectExpr to create a new column "monthly_salary" = salary / 12
 df.selectExpr('salary / 12 as monthly_salary').show()
