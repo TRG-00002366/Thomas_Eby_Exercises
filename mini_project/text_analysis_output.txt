@@ -1,0 +1,275 @@
+ -------------------------------------------------------------------------------- 
+
+Task 1: Text Normalization
+
+the adventures of sherlock holmes                                               
+
+by
+
+sir arthur conan doyle
+
+
+
+i a scandal in bohemia
+ii the red headed league
+iii a case of identity
+iv the boscombe valley mystery
+v the five orange pips
+vi the man with the twisted lip
+vii the adventure of the blue carbuncle
+
+ -------------------------------------------------------------------------------- 
+
+Task 2: Word Tokenization
+
+the
+adventures
+of
+sherlock
+holmes
+by
+sir
+arthur
+conan
+doyle
+i
+a
+scandal
+in
+bohemia
+
+ -------------------------------------------------------------------------------- 
+
+Task 3: Filtering Stopwords
+
+adventures
+sherlock
+holmes
+sir
+arthur
+conan
+doyle
+scandal
+bohemia
+ii
+red
+headed
+league
+iii
+case
+
+ -------------------------------------------------------------------------------- 
+
+Task 4: Character Counting
+
+Number of characters: 549683
+Number of letters and spaces: 526417
+
+ -------------------------------------------------------------------------------- 
+
+Task 5: Line Length Analysis
+
+The longest sentence:
+"When you combine the ideas of whistles at night, the presence of a band of gipsies who are on intimate terms with this old doctor, the fact that we have every reason to believe that the doctor has an interest in preventing his stepdaughter's marriage, the dying allusion to a band, and, finally, the fact that Miss Helen Stoner heard a metallic clang, which might have been caused by one of those metal bars that secured the shutters falling back into its place, I think that there is good ground to think that the mystery may be cleared along those lines."
+With character count: 558
+
+
+The longest quote:
+"come to an entirely erroneous conclusion which shows, my dear Watson, how dangerous it always is to reason from insufficient data. The presence of the gipsies, and the use of the word 'band,' which was used by the poor girl, no doubt, to explain the appearance which she had caught a hurried glimpse of by the light of her match, were sufficient to put me upon an entirely wrong scent. I can only claim the merit that I instantly reconsidered my position when, however, it became clear to me that whatever danger threatened an occupant of the room could not come either from the window or the door. My attention was speedily drawn, as I have already remarked to you, to this ventilator, and to the bell-rope which hung down to the bed. The discovery that this was a dummy, and that the bed was clamped to the floor, instantly gave rise to the suspicion that the rope was there as a bridge for something passing through the hole and coming to the bed. The idea of a snake instantly occurred to me, and when I coupled it with my knowledge that the doctor was furnished with a supply of creatures from India, I felt that I was probably on the right track. The idea of using a form of poison which could not possibly be discovered by any chemical test was just such a one as would occur to a clever and ruthless man who had had an Eastern training. The rapidity with which such a poison would take effect would also, from his point of view, be an advantage. It would be a sharp-eyed coroner, indeed, who could distinguish the two little dark punctures which would show where the poison fangs had done their work. Then I thought of the whistle. Of course he must recall the snake before the morning light revealed it to the victim. He had trained it, probably by the use of the milk which we saw, to return to him when summoned. He would put it through this ventilator at the hour that he thought best, with the certainty that it would crawl down the rope and land on the bed. It might or might not bite the occupant, perhaps she might escape every night for a week, but sooner or later she must fall a victim.
+With character count: 2106
+
+ -------------------------------------------------------------------------------- 
+
+Task 6: Word Search (Filtering)
+
+
+------------Sentences containing Watson------------
+"I think, Watson, that you have put on seven and a half pounds since I saw you." 
+
+Just a trifle more, I fancy, Watson. 
+
+There's money in this case, Watson, if there is nothing else." 
+
+"This is my friend and colleague, Dr. Watson, who is occasionally good enough to help me in my cases. 
+
+And good-night, Watson," he added, as the wheels of the royal brougham rolled down the street. 
+
+
+------------Dialogue containing Watson------------
+"I think, Watson, that you have put on seven and a half pounds since I saw you." 
+
+"Indeed, I should have thought a little more. Just a trifle more, I fancy, Watson. And in practice again, I observe. You did not tell me that you intended to go into harness." 
+
+"A nice little brougham and a pair of beauties. A hundred and fifty guineas apiece. There's money in this case, Watson, if there is nothing else." 
+
+"This is my friend and colleague, Dr. Watson, who is occasionally good enough to help me in my cases. Whom have I the honour to address?" 
+
+"Then, good-night, your Majesty, and I trust that we shall soon have some good news for you. And good-night, Watson," 
+
+
+ -------------------------------------------------------------------------------- 
+
+Task 7: Unique Vocabulary Count
+
+7811 words are used
+
+ -------------------------------------------------------------------------------- 
+
+Task 8: Top 10 Frequent Words
+
+Top ten most used words (including stop words)
+ 1.  the: 5630
+ 2.    i: 3038
+ 3.  and: 3018
+ 4.   to: 2743
+ 5.   of: 2655
+ 6.    a: 2643
+ 7.   in: 1766
+ 8. that: 1752
+ 9.   it: 1734
+10.  you: 1502
+Top ten most used words (excluding stop words)
+ 1.   said: 486
+ 2.   upon: 465
+ 3. holmes: 462
+ 4.    one: 376
+ 5.  would: 327
+ 6.    man: 305
+ 7.  could: 286
+ 8.     mr: 275
+ 9. little: 269
+10.    see: 229
+
+ -------------------------------------------------------------------------------- 
+
+Task 9: Sentence Start Distribution
+
+('the', 258)
+('a', 70)
+('to', 13)
+('i', 689)
+('in', 52)
+('it', 284)
+('all', 18)
+('he', 261)
+('they', 36)
+('but', 100)
+
+ -------------------------------------------------------------------------------- 
+
+Task 10: Average Word Length
+
+The average word length is 4.076846806863143
+
+ -------------------------------------------------------------------------------- 
+
+Task 11: Distribution of Word Lengths
+
+(1, 6284)
+(2, 19979)
+(3, 24129)
+(4, 20708)
+(5, 11371)
+(6, 8536)
+(7, 6124)
+(8, 4000)
+(9, 2324)
+(10, 1297)
+(11, 605)
+(12, 324)
+(13, 164)
+(14, 44)
+(15, 7)
+
+ -------------------------------------------------------------------------------- 
+
+Task 12: Specific Chapter Extraction
+
+ADVENTURE I. A SCANDAL IN BOHEMIA
+I.  To Sherlock Holmes she is always THE woman. I have seldom heard him mention her under any other name. In his eyes she eclipses and predominates the whole of her sex. It was not that he felt any emotion akin to love for Irene Adler. All emotions, and that one particularly, were abhorrent to his cold, precise but admirably balanced mind. He was, I take it, the most perfect reasoning and observing machine that the world has seen, but as a lover he would have placed himself in a false position. He never spoke of the softer passions, save with a gibe and a sneer. They were admirable things for the observer--excellent for drawing the veil from men's motives and actions. But for the trained reasoner to admit such intrusions into his own delicate and finely adjusted temperament was to introduce a distracting factor which might throw a doubt upon all his mental results. Grit in a sensitive instrument, or a crack in one of his own high-power lenses, would not be more disturbing tha ...
+
+
+ADVENTURE II. THE RED-HEADED LEAGUE
+I had called upon my friend, Mr. Sherlock Holmes, one day in the autumn of last year and found him in deep conversation with a very stout, florid-faced, elderly gentleman with fiery red hair. With an apology for my intrusion, I was about to withdraw when Holmes pulled me abruptly into the room and closed the door behind me.  "You could not possibly have come at a better time, my dear Watson," he said cordially.  "I was afraid that you were engaged."  "So I am. Very much so."  "Then I can wait in the next room."  "Not at all. This gentleman, Mr. Wilson, has been my partner and helper in many of my most successful cases, and I have no doubt that he will be of the utmost use to me in yours also."  The stout gentleman half rose from his chair and gave a bob of greeting, with a quick little questioning glance from his small fat-encircled eyes.  "Try the settee," said Holmes, relapsing into his armchair and putting his fingertips together, as was his custom when in judicial moods ...
+
+
+ADVENTURE III. A CASE OF IDENTITY
+"My dear fellow," said Sherlock Holmes as we sat on either side of the fire in his lodgings at Baker Street, "life is infinitely stranger than anything which the mind of man could invent. We would not dare to conceive the things which are really mere commonplaces of existence. If we could fly out of that window hand in hand, hover over this great city, gently remove the roofs, and peep in at the queer things which are going on, the strange coincidences, the plannings, the cross-purposes, the wonderful chains of events, working through generations, and leading to the most outr� results, it would make all fiction with its conventionalities and foreseen conclusions most stale and unprofitable."  "And yet I am not convinced of it," I answered. "The cases which come to light in the papers are, as a rule, bald enough, and vulgar enough. We have in our police reports realism pushed to its extreme limits, and yet the result is, it must be confessed, neither fascinating nor artistic." ...
+
+
+ADVENTURE IV. THE BOSCOMBE VALLEY MYSTERY
+We were seated at breakfast one morning, my wife and I, when the maid brought in a telegram. It was from Sherlock Holmes and ran in this way:  "Have you a couple of days to spare? Have just been wired for from the west of England in connection with Boscombe Valley tragedy. Shall be glad if you will come with me. Air and scenery perfect. Leave Paddington by the 11:15."  "What do you say, dear?" said my wife, looking across at me. "Will you go?"  "I really don't know what to say. I have a fairly long list at present."  "Oh, Anstruther would do your work for you. You have been looking a little pale lately. I think that the change would do you good, and you are always so interested in Mr. Sherlock Holmes' cases."  "I should be ungrateful if I were not, seeing what I gained through one of them," I answered. "But if I am to go, I must pack at once, for I have only half an hour."  My experience of camp life in Afghanistan had at least had the effect of making me a prompt and ...
+
+
+ADVENTURE V. THE FIVE ORANGE PIPS
+When I glance over my notes and records of the Sherlock Holmes cases between the years '82 and '90, I am faced by so many which present strange and interesting features that it is no easy matter to know which to choose and which to leave. Some, however, have already gained publicity through the papers, and others have not offered a field for those peculiar qualities which my friend possessed in so high a degree, and which it is the object of these papers to illustrate. Some, too, have baffled his analytical skill, and would be, as narratives, beginnings without an ending, while others have been but partially cleared up, and have their explanations founded rather upon conjecture and surmise than on that absolute logical proof which was so dear to him. There is, however, one of these last which was so remarkable in its details and so startling in its results that I am tempted to give some account of it in spite of the fact that there are points in connection with it which never ...
+
+
+
+ -------------------------------------------------------------------------------- 
+
+O1: Found on lines 80-91
+
+
+ -------------------------------------------------------------------------------- 
+
+O2: Global Error/Blank Line Counter (Accumulator)
+
+The amount of empty lines encountered: 18026
+
+ -------------------------------------------------------------------------------- 
+
+O3: Word-Length Pairing (Pair RDD)
+
+(3, 'the')
+(10, 'adventures')
+(2, 'of')
+(8, 'sherlock')
+(6, 'holmes')
+(2, 'by')
+(3, 'sir')
+(6, 'arthur')
+(5, 'conan')
+(5, 'doyle')
+
+ -------------------------------------------------------------------------------- 
+
+O4: Character Frequency (Pair RDD / ReduceByKey)
+
+('t', 38981)
+('d', 18563)
+('o', 33512)
+('l', 17145)
+('c', 10499)
+('b', 6362)
+('g', 7887)
+('p', 6835)
+('j', 452)
+('q', 426)
+
+ -------------------------------------------------------------------------------- 
+
+O5: Grouped Word List (GroupByKey)
+
+('t', <pyspark.resultiterable.ResultIterable object at 0x7f370c462660>)
+('o', <pyspark.resultiterable.ResultIterable object at 0x7f370c4439e0>)
+('b', <pyspark.resultiterable.ResultIterable object at 0x7f370c325310>)
+('c', <pyspark.resultiterable.ResultIterable object at 0x7f370c1a3110>)
+('d', <pyspark.resultiterable.ResultIterable object at 0x7f370c1a30e0>)
+('l', <pyspark.resultiterable.ResultIterable object at 0x7f370c1fbb90>)
+('p', <pyspark.resultiterable.ResultIterable object at 0x7f370c1fbb60>)
+('g', <pyspark.resultiterable.ResultIterable object at 0x7f370c23aea0>)
+('q', <pyspark.resultiterable.ResultIterable object at 0x7f370c24f590>)
+('j', <pyspark.resultiterable.ResultIterable object at 0x7f370c251e20>)
+
+ -------------------------------------------------------------------------------- 
+
+O6: Loading from Multiple Sources
+
+Achieved by wrapping content in try-except and giving the user instructions if the file isn't found.
+
+ -------------------------------------------------------------------------------- 
+
+O7: Saving Analytics Results
+
+ -------------------------------------------------------------------------------- 
