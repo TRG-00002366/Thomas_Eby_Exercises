@@ -1,0 +1,147 @@
+=== Exercise: Set Operations ===
+
+January Customers:
++-----------+-------+-----------------+                                         
+|customer_id|   name|            email|
++-----------+-------+-----------------+
+|          1|  Alice|  alice@email.com|
+|          2|    Bob|    bob@email.com|
+|          3|Charlie|charlie@email.com|
+|          4|  Diana|  diana@email.com|
++-----------+-------+-----------------+
+
+February Customers:
++-----------+-----+---------------+
+|customer_id| name|          email|
++-----------+-----+---------------+
+|          2|  Bob|  bob@email.com|
+|          4|Diana|diana@email.com|
+|          5|  Eve|  eve@email.com|
+|          6|Frank|frank@email.com|
++-----------+-----+---------------+
+
+March Customers (different column order!):
++---------------+-----+-----------+
+|          email| name|customer_id|
++---------------+-----+-----------+
+|grace@email.com|Grace|          7|
+|henry@email.com|Henry|          8|
+|  bob@email.com|  Bob|          2|
++---------------+-----+-----------+
+
+
+--- Task 1: Union ---
++-----------+-------+-----------------+
+|customer_id|   name|            email|
++-----------+-------+-----------------+
+|          1|  Alice|  alice@email.com|
+|          2|    Bob|    bob@email.com|
+|          3|Charlie|charlie@email.com|
+|          4|  Diana|  diana@email.com|
+|          2|    Bob|    bob@email.com|
+|          4|  Diana|  diana@email.com|
+|          5|    Eve|    eve@email.com|
+|          6|  Frank|  frank@email.com|
++-----------+-------+-----------------+
+
++-----------+-------+-----------------+                                         
+|customer_id|   name|            email|
++-----------+-------+-----------------+
+|          1|  Alice|  alice@email.com|
+|          2|    Bob|    bob@email.com|
+|          3|Charlie|charlie@email.com|
+|          4|  Diana|  diana@email.com|
+|          5|    Eve|    eve@email.com|
+|          6|  Frank|  frank@email.com|
++-----------+-------+-----------------+
+
++-----------+-------+-----------------+
+|customer_id|   name|            email|
++-----------+-------+-----------------+
+|          1|  Alice|  alice@email.com|
+|          2|    Bob|    bob@email.com|
+|          3|Charlie|charlie@email.com|
+|          4|  Diana|  diana@email.com|
+|          7|  Grace|  grace@email.com|
+|          8|  Henry|  henry@email.com|
+|          2|    Bob|    bob@email.com|
++-----------+-------+-----------------+
+
+Num distinct customers: 8                                                       
+
+--- Task 2: Intersect ---
++-----------+-----+---------------+
+|customer_id| name|          email|
++-----------+-----+---------------+
+|          4|Diana|diana@email.com|
+|          2|  Bob|  bob@email.com|
++-----------+-----+---------------+
+
+Above should include Bob and Diana
+
+--- Task 3: Subtract/Except ---
++-----------+-------+-----------------+
+|customer_id|   name|            email|
++-----------+-------+-----------------+
+|          3|Charlie|charlie@email.com|
+|          1|  Alice|  alice@email.com|
++-----------+-------+-----------------+
+
++-----------+-----+---------------+
+|customer_id| name|          email|
++-----------+-----+---------------+
+|          6|Frank|frank@email.com|
+|          5|  Eve|  eve@email.com|
++-----------+-----+---------------+
+
+
+--- Task 4: Deduplication ---
++-----------+-------+-----------------+
+|customer_id|   name|            email|
++-----------+-------+-----------------+
+|          1|  Alice|  alice@email.com|
+|          2|    Bob|    bob@email.com|
+|          3|Charlie|charlie@email.com|
+|          4|  Diana|  diana@email.com|
+|          5|    Eve|    eve@email.com|
+|          6|  Frank|  frank@email.com|
++-----------+-------+-----------------+
+
++-----------+-------+-----------------+
+|customer_id|   name|            email|
++-----------+-------+-----------------+
+|          1|  Alice|  alice@email.com|
+|          2|    Bob|    bob@email.com|
+|          3|Charlie|charlie@email.com|
+|          4|  Diana|  diana@email.com|
+|          5|    Eve|    eve@email.com|
+|          6|  Frank|  frank@email.com|
++-----------+-------+-----------------+
+
+
+--- Challenge: Data Reconciliation ---
++---+---------+-----+
+| id|     name|price|
++---+---------+-----+
+|  1|Product A|  100|
++---+---------+-----+
+
++---+---------+-----+
+| id|     name|price|
++---+---------+-----+
+|  3|Product C|  300|
+|  2|Product B|  200|
++---+---------+-----+
+
++---+---------+-----+
+| id|     name|price|
++---+---------+-----+
+|  4|Product D|  400|
+|  2|Product B|  250|
++---+---------+-----+
+
++-------------+-----------------+-----------------+
+|matched_count|source-only count|target-only count|
++-------------+-----------------+-----------------+
+|            1|                2|                2|
++-------------+-----------------+-----------------+

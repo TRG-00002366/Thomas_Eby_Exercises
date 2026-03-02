@@ -1,0 +1,181 @@
+=== Exercise: Column Management ===
+
+Raw Inventory Data:
++----------+---------------+-----------+------+--------+---------+              
+|product_id|product_name   |category   |price |quantity|warehouse|
++----------+---------------+-----------+------+--------+---------+
+|1         |  LAPTOP pro   |Electronics|999.99|50      |NULL     |
+|2         |  phone X      |Electronics|799.99|100     |NY       |
+|3         |Winter JACKET  |Clothing   |149.99|200     |CA       |
+|4         | running shoes |Clothing   |89.99 |NULL    |TX       |
+|5         |coffee MAKER   |Home       |49.99 |75      |NULL     |
+|6         |  Desk Lamp    |Home       |29.99 |120     |NY       |
++----------+---------------+-----------+------+--------+---------+
+
+
+--- Task 1: String Cleaning ---
++----------+-------------+-----------+------+--------+---------+                
+|product_id| product_name|   category| price|quantity|warehouse|
++----------+-------------+-----------+------+--------+---------+
+|         1|   Laptop Pro|Electronics|999.99|      50|     NULL|
+|         2|      Phone X|Electronics|799.99|     100|       NY|
+|         3|Winter Jacket|   Clothing|149.99|     200|       CA|
+|         4|Running Shoes|   Clothing| 89.99|    NULL|       TX|
+|         5| Coffee Maker|       Home| 49.99|      75|     NULL|
+|         6|    Desk Lamp|       Home| 29.99|     120|       NY|
++----------+-------------+-----------+------+--------+---------+
+
++----------+---------------+-----------+------+--------+---------+
+|product_id|   product_name|   category| price|quantity|warehouse|
++----------+---------------+-----------+------+--------+---------+
+|         1|   LAPTOP pro  |electronics|999.99|      50|     NULL|
+|         2|       phone X |electronics|799.99|     100|       NY|
+|         3|  Winter JACKET|   clothing|149.99|     200|       CA|
+|         4| running shoes |   clothing| 89.99|    NULL|       TX|
+|         5|   coffee MAKER|       home| 49.99|      75|     NULL|
+|         6|    Desk Lamp  |       home| 29.99|     120|       NY|
++----------+---------------+-----------+------+--------+---------+
+
++----------+---------------+-----------+------+--------+---------+------------+
+|product_id|   product_name|   category| price|quantity|warehouse|product_code|
++----------+---------------+-----------+------+--------+---------+------------+
+|         1|   LAPTOP pro  |Electronics|999.99|      50|     NULL|       ELE-1|
+|         2|       phone X |Electronics|799.99|     100|       NY|       ELE-2|
+|         3|  Winter JACKET|   Clothing|149.99|     200|       CA|       CLO-3|
+|         4| running shoes |   Clothing| 89.99|    NULL|       TX|       CLO-4|
+|         5|   coffee MAKER|       Home| 49.99|      75|     NULL|       HOM-5|
+|         6|    Desk Lamp  |       Home| 29.99|     120|       NY|       HOM-6|
++----------+---------------+-----------+------+--------+---------+------------+
+
+
+--- Task 2: Handling Nulls ---
++----------+---------------+-----------+------+--------+---------+
+|product_id|   product_name|   category| price|quantity|warehouse|
++----------+---------------+-----------+------+--------+---------+
+|         1|   LAPTOP pro  |Electronics|999.99|      50|  CENTRAL|
+|         2|       phone X |Electronics|799.99|     100|       NY|
+|         3|  Winter JACKET|   Clothing|149.99|     200|       CA|
+|         4| running shoes |   Clothing| 89.99|    NULL|       TX|
+|         5|   coffee MAKER|       Home| 49.99|      75|  CENTRAL|
+|         6|    Desk Lamp  |       Home| 29.99|     120|       NY|
++----------+---------------+-----------+------+--------+---------+
+
++----------+---------------+-----------+------+--------+---------+
+|product_id|   product_name|   category| price|quantity|warehouse|
++----------+---------------+-----------+------+--------+---------+
+|         1|   LAPTOP pro  |Electronics|999.99|      50|     NULL|
+|         2|       phone X |Electronics|799.99|     100|       NY|
+|         3|  Winter JACKET|   Clothing|149.99|     200|       CA|
+|         4| running shoes |   Clothing| 89.99|       0|       TX|
+|         5|   coffee MAKER|       Home| 49.99|      75|     NULL|
+|         6|    Desk Lamp  |       Home| 29.99|     120|       NY|
++----------+---------------+-----------+------+--------+---------+
+
++----------+---------------+-----------+------+--------+---------+--------+
+|product_id|   product_name|   category| price|quantity|warehouse|in_stock|
++----------+---------------+-----------+------+--------+---------+--------+
+|         1|   LAPTOP pro  |Electronics|999.99|      50|     NULL|    true|
+|         2|       phone X |Electronics|799.99|     100|       NY|    true|
+|         3|  Winter JACKET|   Clothing|149.99|     200|       CA|    true|
+|         4| running shoes |   Clothing| 89.99|    NULL|       TX|   false|
+|         5|   coffee MAKER|       Home| 49.99|      75|     NULL|    true|
+|         6|    Desk Lamp  |       Home| 29.99|     120|       NY|    true|
++----------+---------------+-----------+------+--------+---------+--------+
+
+
+--- Task 3: Calculated Columns ---
++----------+---------------+-----------+------+--------+---------+---------------+
+|product_id|   product_name|   category| price|quantity|warehouse|inventory_value|
++----------+---------------+-----------+------+--------+---------+---------------+
+|         1|   LAPTOP pro  |Electronics|999.99|      50|     NULL|        49999.5|
+|         2|       phone X |Electronics|799.99|     100|       NY|        79999.0|
+|         3|  Winter JACKET|   Clothing|149.99|     200|       CA|        29998.0|
+|         4| running shoes |   Clothing| 89.99|    NULL|       TX|            0.0|
+|         5|   coffee MAKER|       Home| 49.99|      75|     NULL|        3749.25|
+|         6|    Desk Lamp  |       Home| 29.99|     120|       NY|         3598.8|
++----------+---------------+-----------+------+--------+---------+---------------+
+
++----------+---------------+-----------+------+--------+---------+----------+
+|product_id|   product_name|   category| price|quantity|warehouse|price_tier|
++----------+---------------+-----------+------+--------+---------+----------+
+|         1|   LAPTOP pro  |Electronics|999.99|      50|     NULL|   Premium|
+|         2|       phone X |Electronics|799.99|     100|       NY|   Premium|
+|         3|  Winter JACKET|   Clothing|149.99|     200|       CA|       Mid|
+|         4| running shoes |   Clothing| 89.99|    NULL|       TX|       Mid|
+|         5|   coffee MAKER|       Home| 49.99|      75|     NULL|    Budget|
+|         6|    Desk Lamp  |       Home| 29.99|     120|       NY|    Budget|
++----------+---------------+-----------+------+--------+---------+----------+
+
++----------+---------------+-----------+------+--------+---------+------------+
+|product_id|   product_name|   category| price|quantity|warehouse|last_updated|
++----------+---------------+-----------+------+--------+---------+------------+
+|         1|   LAPTOP pro  |Electronics|999.99|      50|     NULL|  2026-03-02|
+|         2|       phone X |Electronics|799.99|     100|       NY|  2026-03-02|
+|         3|  Winter JACKET|   Clothing|149.99|     200|       CA|  2026-03-02|
+|         4| running shoes |   Clothing| 89.99|    NULL|       TX|  2026-03-02|
+|         5|   coffee MAKER|       Home| 49.99|      75|     NULL|  2026-03-02|
+|         6|    Desk Lamp  |       Home| 29.99|     120|       NY|  2026-03-02|
++----------+---------------+-----------+------+--------+---------+------------+
+
+
+--- Task 4: Removing and Renaming ---
++----------+---------------+-----------+------+--------+
+|product_id|   product_name|   category| price|quantity|
++----------+---------------+-----------+------+--------+
+|         1|   LAPTOP pro  |Electronics|999.99|      50|
+|         2|       phone X |Electronics|799.99|     100|
+|         3|  Winter JACKET|   Clothing|149.99|     200|
+|         4| running shoes |   Clothing| 89.99|    NULL|
+|         5|   coffee MAKER|       Home| 49.99|      75|
+|         6|    Desk Lamp  |       Home| 29.99|     120|
++----------+---------------+-----------+------+--------+
+
++---+---------------+-----------+------+--------+---------+
+| id|           name|   category| price|quantity|warehouse|
++---+---------------+-----------+------+--------+---------+
+|  1|   LAPTOP pro  |Electronics|999.99|      50|     NULL|
+|  2|       phone X |Electronics|799.99|     100|       NY|
+|  3|  Winter JACKET|   Clothing|149.99|     200|       CA|
+|  4| running shoes |   Clothing| 89.99|    NULL|       TX|
+|  5|   coffee MAKER|       Home| 49.99|      75|     NULL|
+|  6|    Desk Lamp  |       Home| 29.99|     120|       NY|
++---+---------------+-----------+------+--------+---------+
+
+
+--- Task 5: Complete Data Pipeline ---
++---+-------------+-----------+------+--------+---------------+----------+------------+
+| id|         name|   category| price|quantity|inventory_value|price_tier|last_updated|
++---+-------------+-----------+------+--------+---------------+----------+------------+
+|  1|   Laptop Pro|Electronics|999.99|      50|        49999.5|   Premium|  2026-03-02|
+|  2|      Phone X|Electronics|799.99|     100|        79999.0|   Premium|  2026-03-02|
+|  3|Winter Jacket|   Clothing|149.99|     200|        29998.0|       Mid|  2026-03-02|
+|  4|Running Shoes|   Clothing| 89.99|       0|            0.0|       Mid|  2026-03-02|
+|  5| Coffee Maker|       Home| 49.99|      75|        3749.25|    Budget|  2026-03-02|
+|  6|    Desk Lamp|       Home| 29.99|     120|         3598.8|    Budget|  2026-03-02|
++---+-------------+-----------+------+--------+---------------+----------+------------+
+
+
+--- Challenge: String Parsing ---
++------------+
+|product_name|
++------------+
+|   Widget A |
+|   Gadget B |
+|     Tool C |
++------------+
+
++----------+
+|size_value|
++----------+
+|     Large|
+|    Medium|
+|     Small|
++----------+
+
++-----------+
+|color_value|
++-----------+
+|       Blue|
+|        Red|
+|      Green|
++-----------+
