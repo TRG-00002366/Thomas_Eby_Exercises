@@ -59,7 +59,7 @@ print("\n--- Task 1: Inner Join ---")
 
 # TODO 1a: Join customers and orders (only matching records)
 # Show customer name, order_id, order_date, amount
-customers.join(orders, 'customer_id').show()
+customers.join(orders, customers.customer_id == orders.customer_id).show()
 
 # TODO 1b: How many orders have matching customers?
 # HINT: Compare this count to total orders
@@ -74,7 +74,7 @@ print("\n--- Task 2: Left and Right Joins ---")
 
 # TODO 2a: LEFT JOIN - All customers, with order info where available
 # Who has NOT placed any orders?
-customers.join(orders, 'customer_id', 'left').show()
+customers.join(orders, customers.customer_id == orders.customer_id, 'left').show()
 
 print("The customers who haven't placed orders:")
 customers.join(orders, 'customer_id', 'left').filter(col('order_id').isNull()).show()
@@ -136,16 +136,15 @@ customers.join(orders, 'customer_id', 'left_anti').show()
 print("\n--- Task 5: Handling Duplicate Columns ---")
 
 # After joining customers and orders, both have customer_id
-print("I'm joining on customer_id == order_id so that the two customer_id columns would show it I don't drop them.")
 # TODO 5a: Join and then DROP the duplicate customer_id column
-customers.join(orders, customers.customer_id == orders.order_id, 'full') \
+customers.join(orders, customers.customer_id == orders.customer_id, 'inner') \
     .drop(orders.customer_id).show()
 
 # TODO 5b: Alternative: Use aliases to reference specific columns
 # HINT: customers.alias("c"), orders.alias("o")
 c = customers.alias('c')
 o = orders.alias('o')
-c.join(o, c.customer_id == o.order_id, 'full') \
+c.join(o, c.customer_id == o.customer_id, 'full') \
     .drop(o.customer_id).show()
 
 
