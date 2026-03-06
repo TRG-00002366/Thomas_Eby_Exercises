@@ -1,5 +1,5 @@
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, round, sum as spark_sum, avg as spark_avg, month
+from pyspark.sql import SparkSession, Window
+from pyspark.sql.functions import col, round, sum as spark_sum, avg as spark_avg, month, coalesce, lit, when
 
 def create_spark_session():
     return SparkSession.builder \
@@ -72,6 +72,35 @@ def sql_three_highest_fares(spark, rides_df):
                 LIMIT 3;
               """)
 
+# O1: sort the rides by the fare_amount in reverse order and break ties with distance_miles in ascending order
+def sort_rides(rides_df):
+    return rides_df.sort(col('fare_amount').desc(), col('distance_miles'))
+
+# O2: count the null values in the rating column and replace them with 0.0 
+def count_and_replace_null_ratings(rides_df):
+    count = rides_df.filter(col('rating').isNull()).count()
+    replaced_df = rides_df.withColumn('rating', coalesce(col('rating'), lit(0.0)))
+    return count, replaced_df
+
+# O3: add 'ride_category' column to classify rides with a distance under 3 miles as 'short', between 3 and 8 miles as 'medium', and above 8 miles as 'long'
+def with_ride_category(rides_df):
+    return rides_df.withColumn('ride_category', 
+                               when(col('distance_miles') < 3, 'short')
+                               .when(col('distance_miles') < 8, 'medium')
+                               .otherwise('long')
+                               )
+
+# O4: use a window function add a column with a running total of fare_amount for each driver
+def running_fare_amount(rides_df):
+    window = Window.partitionBy('driver_id').orderBy('ride_date').rowsBetween(Window.unboundedPreceding, Window.currentRow)
+    return rides_df.withColumn('total_fare_amount', spark_sum('fare_amount').over(window))
+
+# O5: save the joined DataFrame as a Parquet file in a directory named "Ride_Analytics_Results"
+def save_joined_and_aggregated(rides_df, drivers_df, path):
+    join_data(rides_df, drivers_df).coalesce(1).write.mode("overwrite").parquet(path + "/Ride_Analytics_Results")
+    avg_rating_by_driver(rides_df).coalesce(1).write.option('header', 'true').mode('overwrite').csv(path + "/Ride_Analytics_Results/avg_ratings/")
+    total_fare_by_type(rides_df).coalesce(1).write.option('header', 'true').mode('overwrite').csv(path + "/Ride_Analytics_Results/total_fares/")
+
 def main():
     spark = create_spark_session()
     # T1
@@ -108,6 +137,23 @@ def main():
     # T12
     print("\nTop 3 highest fares:")
     sql_three_highest_fares(spark, rides_df).show()
+    # O1
+    print("\nRides sorted by fare_amount DESC, distance_miles ASC:")
+    sort_rides(rides_df).show(5)
+    # O2
+    print("\nNull rating count and table with null ratings set to 0.0:")
+    count, table = count_and_replace_null_ratings(rides_df)
+    print(f"Count: {count}")
+    table.show(5)
+    # O3
+    print("\nRides with ride_category:")
+    with_ride_category(rides_df).show(5)
+    # O4
+    print("\nRunning total of fare amounts per driver:")
+    running_fare_amount(rides_df).show(5)
+    # O5
+    save_joined_and_aggregated(rides_df, drivers_df, "mini_project_2")
+    print("Check /Ride_Analytics_Results for the output files")
     spark.stop()
     
 
