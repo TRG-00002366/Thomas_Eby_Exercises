@@ -1,0 +1,4 @@
+When I tried doing 2 brokers, I realized that I'd need to change some references to 'kafka' in my new
+kafka2 service, but I didn't catch all of them and failed to create my two broker containers many 
+times. Eventually, I copied one of their configurations into Gemini and it pointed out some places
+I had missed.

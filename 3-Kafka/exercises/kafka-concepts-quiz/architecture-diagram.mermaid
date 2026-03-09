@@ -1,0 +1,66 @@
+graph TB
+    %% TODO: Add replication arrows between leaders and followers
+    B3P1 --> B1P1
+    B2P2 --> B3P2
+    B1P0 --> B2P0
+    subgraph "Kafka Cluster"
+        subgraph "Broker 1"
+            %% TODO: Add partitions for Broker 1
+            B1P0[orders P0 - L]
+            B1P1[orders P1 - F]
+        end
+        
+        subgraph "Broker 2"
+            %% TODO: Add partitions for Broker 2
+            B2P0[orders P0 - F]
+            B2P2[orders P2 - L]
+        end
+        
+        subgraph "Broker 3"
+            %% TODO: Add partitions for Broker 3
+            B3P1[orders P1 - L]
+            B3P2[orders P2 - F]
+        end
+    end
+    
+    %% TODO: Add Producer
+    %% Example: PROD[Producer]
+    PROD[Producer]
+
+
+    subgraph "Consumer Group: order-processors"
+        %% TODO: Add Consumers
+        %% Example: C1[Consumer 1]
+        C1[Consumer 1]
+        C2[Consumer 2]
+    end
+    
+    %% TODO: Add connections
+    %% Producer to topic partitions
+    %% Consumers to partitions
+    PROD --> B3P1
+    PROD --> B2P2
+    PROD --> B1P0
+
+    C1 --> B3P1
+    C1 --> B1P0
+    C2 --> B2P2
+
+    
+
+    classDef leader fill:#0071bc,color:#fff,stroke:#000
+    class B3P1,B2P2,B1P0 leader
+%% Kafka Architecture Diagram
+%% Complete this diagram to show a 3-broker cluster with the "orders" topic
+%% 
+%% Requirements:
+%% - 3 Brokers (labeled with IDs)
+%% - "orders" topic with 3 partitions
+%% - Replication factor of 2 (show [L] for Leader, [F] for Follower)
+%% - 1 Producer
+%% - 2 Consumers in a consumer group
+%%
+%% Tips:
+%% - Use subgraph for grouping (brokers, consumer group)
+%% - Use different colors for leaders vs followers
+%% - Show which consumer reads which partition

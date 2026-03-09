@@ -1,0 +1,42 @@
+==================================================
+KAFKA CONNECTION VERIFICATION
+==================================================
+
+Attempting to connect to Kafka...
+----------------------------------------
+Connected to Kafka cluster!
+Topics found: 0
+
+----------------------------------------
+Broker Information
+----------------------------------------
+Brokers (1):
+  - Broker bootstrap-0: localhost:9092
+
+==================================================
+VERIFICATION COMPLETE - Kafka is ready!
+==================================================
+
+
+with 2 Brokers
+
+
+==================================================
+KAFKA CONNECTION VERIFICATION
+==================================================
+
+Attempting to connect to Kafka...
+----------------------------------------
+Connected to Kafka cluster!
+Topics found: 0
+
+----------------------------------------
+Broker Information
+----------------------------------------
+Brokers (2):
+  - Broker bootstrap-0: localhost:9093
+  - Broker bootstrap-1: localhost:9092
+
+==================================================
+VERIFICATION COMPLETE - Kafka is ready!
+==================================================
